@@ -1,8 +1,8 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/dev4living/HeyCommunity-frontend.git
-    branch = dev-master
+    url = git@git.coding.net:Protobia/HeyCommunity-frontend.git
+    branch = cloudCommunity
 [submodule "backend"]
 	path = backend
-	url = https://github.com/dev4living/HeyCommunity-backend.git
-    branch = dev-master
+    url = git@git.coding.net:Protobia/HeyCommunity-backend.git
+    branch = cloudCommunity
