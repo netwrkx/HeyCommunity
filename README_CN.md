@@ -1,5 +1,28 @@
 HeyCommunity V2
-============================
+============
+
+[![Build Status](https://travis-ci.org/dev4living/HeyCommunity.svg?branch=dev-master)](https://travis-ci.org/dev4living/HeyCommunity)
+[![GPL](https://img.shields.io/badge/licence-GPL-red.svg?style=flat)](LICENSE.txt)
+[![Docker](https://img.shields.io/badge/dockerImage-300M+-blue.svg?style=flat)](https://hub.daocloud.io/repos/e9aa4c04-33ac-4bc4-99fa-fb727c7acc11)
+
+支持平台: &nbsp;&nbsp;
+[![WebApp](https://img.shields.io/badge/WebApp-support-green.svg?style=flat)](#null)
+[![iOS](https://img.shields.io/badge/iOS-support-green.svg?style=flat)](#null)
+[![Android](https://img.shields.io/badge/Android-support-green.svg?style=flat)](#null)
+
+服务需求: &nbsp;&nbsp;
+[![PHP](https://img.shields.io/badge/PHP->5.5.9-yellowgreen.svg?style=flat)](#null)
+[![Apache](https://img.shields.io/badge/Apache-normal-yellowgreen.svg?style=flat)](#null)
+[![MySQL](https://img.shields.io/badge/MySQL-normal-yellowgreen.svg?style=flat)](#null)
+[![Nginx](https://img.shields.io/badge/Nginx-unknown-lightgrey.svg?style=flat)](#null)
+[![IIS](https://img.shields.io/badge/IIS-unknown-lightgrey.svg?style=flat)](#null)
+
+技术栈: &nbsp;&nbsp;
+[![Ionic 2](https://img.shields.io/badge/Ionic-2-yellow.svg?style=flat)](#null)
+[![Angular](https://img.shields.io/badge/Angular-2-yellow.svg?style=flat)](#null)
+[![Laravel](https://img.shields.io/badge/Laravel-5.1-yellow.svg?style=flat)](#null)
+[![Cordova](https://img.shields.io/badge/Cordova-6-yellow.svg?style=flat)](#null)
+
 
 Read [ENGLISH README](README.md)
 
@@ -33,7 +56,7 @@ HeyCommunity 是一款开源的社交软件，适用于 iOS / Android / Windows 
 ## 获取完整项目代码
 $ git clone https://github.com/dev4living/HeyCommunity.git HeyCommunity
 $ cd HeyCommunity
-$ git submodule update --init                   ## 此步骤可能比较缓慢，可从 Releases 中获取源代码
+$ git submodule update --init --recursive       ## 此步骤可能比较缓慢，可从 Releases 中获取源代码
 
 
 ## 前端部署
