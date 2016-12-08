@@ -83,7 +83,7 @@ RUN chown -R :www-data . && chmod g+w .
 ## 部署 frontend
 WORKDIR /app/frontend
 RUN npm install
-RUN npm run build
+RUN npm run ionic:build
 RUN npm cache clean
 
 
