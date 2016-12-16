@@ -56,13 +56,13 @@ HeyCommunity 是一款开源的社交软件，适用于 iOS / Android / Windows 
 ## 获取完整项目代码
 $ git clone https://github.com/dev4living/HeyCommunity.git HeyCommunity
 $ cd HeyCommunity
-$ git submodule update --init --recursive       ## 此步骤可能比较缓慢，可从 Releases 中获取源代码
+$ git submodule update --init --recursive --depth 1         ## 此步骤可能比较缓慢，可从 Releases 中获取源代码
 
 
 ## 前端部署
 $ cd HeyCommunity/frontend
 $ npm install
-$ npm run build
+$ npm run ionic:build
 $ npm install ionic cordova                     ## 可选操作，安装 ionic cordova 用于构建 app
 $ ionic build ios                               ## 可选操作，使用 ionic build ios app
 $ open platforms/ios/HeyCommunity.xcodeproj     ## 可选操作，使用 xcode 打开 HeyCommunity.xcodeproj，进行模拟器运行、真机测试、上传到 AppStore

@@ -56,13 +56,13 @@ If you are an experienced software engineer, you can choose advanced deployment
 ## Get the full project code
 $ git clone https://github.com/dev4living/HeyCommunity.git HeyCommunity
 $ cd HeyCommunity
-$ git submodule update --init --recursive       ## This step may be slow, and you can get the source code from Releases
+$ git submodule update --init --recursive --depth 1         ## This step may be slow, and you can get the source code from Releases
 
 
 ## Front-end deployment
 $ cd HeyCommunity/frontend
 $ npm install
-$ npm run build
+$ npm run ionic:build
 $ npm install ionic cordova                     ## Optional, install the ionic cordova to build the app
 $ ionic build ios                               ## Optional, use the ionic build ios app
 $ open platforms/ios/HeyCommunity.xcodeproj     ## Optional, use xcode to open HeyCommunity.xcodeproj, the simulator runs, real machine test, upload to the AppStore
