@@ -12,22 +12,14 @@
 
 
     ##
-    ## Home & Admin & Dashboard & Api
+    ## Dashboard & Api
     ##################################
     RewriteRule ^(backend-assets/.*)$ backend/public/$1 [L]
     RewriteRule ^(bower-assets/.*)$ backend/public/$1 [L]
     RewriteRule ^(ionic-assets/.*)$ backend/public/$1 [L]
 
     RewriteRule ^(api.*)$ backend/public/index.php [L]
-
-    RewriteCond %{HTTP_HOST} ^(www|cloud|trial)\.hey[-]?community\.(com|cn|online|local)$ [NC]
-    RewriteRule ^(admin.*)$ backend/public/index.php [L]
-
-    RewriteCond %{HTTP_HOST} ^(www|cloud|trial)\.hey[-]?community\.(com|cn|online|local)$ [NC]
     RewriteRule ^(dashboard.*)$ backend/public/index.php [L]
-
-    RewriteCond %{HTTP_HOST} ^(www|cloud|trial)\.hey[-]?community\.(com|cn|online|local)$ [NC]
-    RewriteRule ^(.*)$ backend/public/$1 [L]
 
 
 
@@ -39,6 +31,5 @@
     RewriteRule ^(build.*)$ frontend/www/$1 [L]
     RewriteRule ^(assets.*)$ frontend/www/$1 [L]
     RewriteRule ^(cordova.*)$ frontend/www/$1 [L]
-    RewriteCond %{HTTP_HOST} !^(www|cloud|trial)\.hey[-]?community\.(com|cn|online|local)$ [NC]
     RewriteRule ^$ frontend/www/index.html [L]
 </IfModule>
