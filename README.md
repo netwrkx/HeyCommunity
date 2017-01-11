@@ -1,4 +1,4 @@
-HeyCommunity V2.1.0-beta
+HeyCommunity V3
 ============================
 
 [![Build Status](https://travis-ci.org/dev4living/HeyCommunity.svg?branch=dev-master)](https://travis-ci.org/dev4living/HeyCommunity)
