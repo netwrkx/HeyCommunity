@@ -1,7 +1,7 @@
-HeyCommunity V2
+HeyCommunity V3
 ============
 
-[![Build Status](https://travis-ci.org/dev4living/HeyCommunity.svg?branch=dev-master)](https://travis-ci.org/dev4living/HeyCommunity)
+[![Build Status](https://travis-ci.org/dev4living/HeyCommunity.svg?branch=master)](https://travis-ci.org/dev4living/HeyCommunity)
 [![GPL](https://img.shields.io/badge/licence-GPL-red.svg?style=flat)](LICENSE.txt)
 [![Docker](https://img.shields.io/badge/dockerImage-300M+-blue.svg?style=flat)](https://hub.daocloud.io/repos/e9aa4c04-33ac-4bc4-99fa-fb727c7acc11)
 
