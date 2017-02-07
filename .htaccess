@@ -19,6 +19,7 @@
     RewriteRule ^(ionic-assets/.*)$ backend/public/$1 [L]
 
     RewriteRule ^(api.*)$ backend/public/index.php [L]
+    RewriteRule ^(docs.*)$ backend/public/$1 [L]
     RewriteRule ^(dashboard.*)$ backend/public/index.php [L]
 
 
