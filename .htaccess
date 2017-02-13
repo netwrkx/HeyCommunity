@@ -19,6 +19,7 @@
     RewriteRule ^(ionic-assets/.*)$ backend/public/$1 [L]
 
     RewriteRule ^(api.*)$ backend/public/index.php [L]
+    RewriteRule ^(docs.*)$ backend/public/$1 [L]
     RewriteRule ^(dashboard.*)$ backend/public/index.php [L]
 
 
@@ -27,7 +28,7 @@
     ## Frontend
     #################
     RewriteBase /
-    RewriteRule ^(uploads.*)$ backend/public/$1 [L]
+    RewriteRule ^(uploads.*)$ backend/storage/app/$1 [L]
     RewriteRule ^(build.*)$ frontend/www/$1 [L]
     RewriteRule ^(assets.*)$ frontend/www/$1 [L]
     RewriteRule ^(cordova.*)$ frontend/www/$1 [L]
