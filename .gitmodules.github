@@ -1,0 +1,8 @@
+[submodule "frontend"]
+    path = frontend
+    url = https://github.com/dev4living/HeyCommunity-frontend.git
+    branch = base
+[submodule "backend"]
+    path = backend
+    url = https://github.com/dev4living/HeyCommunity-backend.git
+    branch = master
