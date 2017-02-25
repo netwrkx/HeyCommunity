@@ -23,74 +23,73 @@ HeyCommunity V3
 [![Laravel](https://img.shields.io/badge/Laravel-5.1-yellow.svg?style=flat)](#null)
 [![Cordova](https://img.shields.io/badge/Cordova-6-yellow.svg?style=flat)](#null)
 
+如果你在中国大陆, 使用 GitHub 不顺畅, 那么可以使用 [Coding.net](https://coding.net/u/rod/p/HeyCommunity/git) 做为替代
+
 
 Read [ENGLISH README](README.md)
 
-HeyCommunity 是一款开源的社交软件，适用于 iOS / Android / Windows Phone 等一切手机操作系统   
-令人惊叹的是它还可以运行在微信中，享受__微信授权登录__和__微信模板消息__带来的便利
+HeyCommunity 是一款开源的社交软件, 适用于 iOS / Android 等一切手机操作系统, 它还可以 WebApp 的形式运行在浏览器中   
+目前 Timeline / Topic 两大功能模块, 接入了微信登录、微信公众号模板消息、极光短信、极光推送等   
 
-官方网站: [http://www.hey-community.cn](http://www.hey-community.cn)   
-在线演示: [http://demo.hey-community.cn](http://demo.hey-community.cn)   
-
-
-
-## 部署
-
-使用 [HeyCommunity 云社区](http://www.hey-community.com/cloud)，不需要技术人员进行部署，也不需要服务器，简单注册即可拥有一个云社区
-
-如果在手动部署中遇到问题，你也可以向我们请求援助
+官方网站: [http://www.hey-community.com](http://www.hey-community.com)   
+官方文档: [http://docs.hey-community.com](http://docs.hey-community.com)   
+在线演示: [http://demo.hey-community.com](http://demo.hey-community.com)   
+Android 演示: [TheHCase](https://fir.im/hc300)
+iOS 演示: [TheHCase](https://fir.im/hc300)
 
 
 
-### 简单部署
+## 部署和构建
 
-如果你不太懂编程，那么我们推荐你从 [Releases](https://github.com/dev4living/HeyCommunity/releases) 下载最新的软件源代码
+你可以使用 DaoCloud 通过 docker 快速部署 HeyCommunity, 参阅 [DaoCloud 快速部署](http://docs.hey-community.com/started/daocloud.html)
 
-
-
-### 高级部署
-
-如果你是一名经验丰富的软件工程师，你可以选择高级部署
+如果在部署中遇到问题, 你也可以向我们请求援助
 
 ```
-## 获取完整项目代码
+### 获取完整项目代码
 $ git clone https://github.com/dev4living/HeyCommunity.git HeyCommunity
 $ cd HeyCommunity
-$ git submodule update --init --recursive --depth 1         ## 此步骤可能比较缓慢，可从 Releases 中获取源代码
+$ git submodule update --init --recursive --depth 1         ## 此步骤可能比较缓慢, 可从 Releases 中获取源代码
 
 
-## 前端部署
+### 前端部署和构建
 $ cd HeyCommunity/frontend
 $ npm install
-$ npm run ionic:build
-$ npm install ionic cordova                     ## 可选操作，安装 ionic cordova 用于构建 app
-$ ionic build ios                               ## 可选操作，使用 ionic build ios app
-$ open platforms/ios/HeyCommunity.xcodeproj     ## 可选操作，使用 xcode 打开 HeyCommunity.xcodeproj，进行模拟器运行、真机测试、上传到 AppStore
+$ vi src/index.html                             ## 修改 API_DOMAIN
+$ vi ionic.config.json                          ## 可选, 修改 Proxy
+$ npm run ionic:build                           ## 构建 WebApp, 并生成入口文件 www/index.html
+
+$ vi config.xml                                 ## 修改 微信 / 极光 等配置
+$ npm install ionic cordova                     ## 安装 ionic / cordova 用于构建 app
+$ ionic state reset && ionic build android      ## 重置 plugins 和 platforms, 并构建 android app (在这之前, 你需要先安装和配置 android-sdk). 生成的 apk 存放在 platforms/android/build/outputs/apk/ 目录
 
 
-## 后端部署
+### 后端部署
 $ cd HeyCommunity/backend
-$ composer install
-$ bower install
-$ cp .env.example .env
-$ php artisan key:generate
-$ vi .env                                       ## 配置数据库连接
+$ composer install                              ## 安装 PHP 依赖
+$ bower install                                 ## 安装前端依赖
+$ cp .env.example .env                          ## 复制配置文件
+$ php artisan key:generate                      ## 生成 AppKey
+$ vi .env                                       ## 修改 数据库 / 七牛云存储 / 极光 / 微信 等配置
 # php artisan migrate:refresh --seed            ## 构建数据库并生成假数据
+
+
+### 配置 Apache Server
+定义一个虚拟主机, 设定域名为 new.hey-community.local, 设置 DocumentRoot 为 HeyCommunity 目录   
+开启 Apache Rewrite 模块, 并设置 HeyCommunity AllowOverride All, 重启 Apache
+
+你的 WebApp URL 为: http://new.hey-community.local
+你的 API_DOMAIN 为: http://new.hey-community.local
 ```
+
+现在，浏览器打开 http://new.hey-community.local 即可访问 HeyCommunity WebApp   
+构建 iOS / Android app 请参阅 `前端部署和构建` 部分结合相关网络资料，篇幅过大日后补充详细介绍
 
 备注:
 
-1. 前端基于 [Ionic Framework](http://ionicframework.com) v2，需要 `node`  `npm` 遇到问题请查阅相关文档
-2. 后端基于 [Laravel Framework](http://laravel.com)，需要 `composer` `bower` 遇到问题请查阅相关文档
-
-
-
-## 运行
-
-我们推荐使用 Apache Web Server，假设已经把 `demo.hey-community.local` 解析到了 `HeyCommunit` 目录   
-那么在浏览器中打开 `demo.hey-community.local` 即可看到 HeyCommunity 在浏览器中运行的效果   
-
-要运行在 iOS 和 Android 设备上，请阅读 __高级部署__ 中的 __前端部署__ 内容，依然有问题请查阅 [Ionic](http://ionicframework.com) v2 等相关文档
+1. 前端基于 [Ionic Framework](http://ionicframework.com) v2, 遇到问题请查阅相关文档
+2. 后端基于 [Laravel Framework](http://laravel.com), 遇到问题请查阅相关文档
+3. 环境依赖可以参考 `HeyCommunity/Dockerfile` 和 `HeyCommunity/docker-entrypoint.sh` 或者[官方文档](http://docs.hey-community.com)
 
 
 
@@ -104,4 +103,4 @@ QQ群: 242078519
 
 ## 授权
 
-HeyCommunity 是开源软件，遵循 [GPLv3](LICENSE.txt) 授权
+HeyCommunity 是开源软件, 遵循 [GPLv3](LICENSE.txt) 授权

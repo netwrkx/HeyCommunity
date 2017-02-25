@@ -23,34 +23,27 @@ Technology Stack: &nbsp;&nbsp;
 [![Laravel](https://img.shields.io/badge/Laravel-5.1-yellow.svg?style=flat)](#null)
 [![Cordova](https://img.shields.io/badge/Cordova-6-yellow.svg?style=flat)](#null)
 
+If you are using GitHub in mainland China, you can use [Coding.net] (https://coding.net/u/rod/p/HeyCommunity/git) as an alternative
+
 
 阅读 [中文文档](README_CN.md)
 
-HeyCommunity is an open source social software for iOS / Android / Windows Phone and other mobile phone operating system   
-It is amazing that it can also run in the WeChat, Using the __WeChat authorization login__ and __WeChat template message__
+HeyCommunity is an open source social software for iOS / Android and all other mobile operating systems, it can also run in the form of WebApp in the browser
+At present Timeline / Topic two functional modules, employ to the WeChat LogIn, WeChat Notice, JiGuang SMS, JiGuang push, etc.
 
-Official website: [http://www.hey-community.cn](http://www.hey-community.cn)   
-Online Demo: [http://demo.hey-community.cn](http://demo.hey-community.cn)   
+Official Website: [http://www.hey-community.com](http://www.hey-community.com)   
+Official Docs: [http://docs.hey-community.com](http://docs.hey-community.com)   
+Online DEMO: [http://demo.hey-community.com](http://demo.hey-community.com)   
+Android DEMO: [TheHCase](https://fir.im/hc300)
+iOS DEMO: [TheHCase](https://fir.im/hc300)
 
 
 
 ## Deploy
 
-Use the [HeyCommunity Cloud Community](http://www.hey-community.com/cloud)，do not require technical staff to deploy, do not need the server, a simple registration can have a cloud community
+You can use DaoCloud to quickly deploy HeyCommunity via the docker, see [DaoCloud Quick Deployment] (http://docs.hey-community.com/started/daocloud.html)
 
 If you have problems with manual deployment, you can also request assistance form us
-
-
-
-### Simple Deployment
-
-If you do not understand programming, then we recommend that you download the latest software source code form [Releases](https://github.com/dev4living/HeyCommunity/releases)
-
-
-
-### Advanced Deployment
-
-If you are an experienced software engineer, you can choose advanced deployment
 
 ```
 ## Get the full project code
@@ -59,39 +52,45 @@ $ cd HeyCommunity
 $ git submodule update --init --recursive --depth 1         ## This step may be slow, and you can get the source code from Releases
 
 
-## Front-end deployment
+### Front-end deployment and build
 $ cd HeyCommunity/frontend
 $ npm install
-$ npm run ionic:build
-$ npm install ionic cordova                     ## Optional, install the ionic cordova to build the app
-$ ionic build ios                               ## Optional, use the ionic build ios app
-$ open platforms/ios/HeyCommunity.xcodeproj     ## Optional, use xcode to open HeyCommunity.xcodeproj, the simulator runs, real machine test, upload to the AppStore
+$ vi src/index.html                             ## Modify API_DOMAIN
+$ vi ionic.config.json                          ## Optional, Modify Proxy
+$ npm run ionic:build                           ## Build WebApp, And generate the index file www/index.html
+
+$ vi config.xml                                 ## Modify WeChat / JiGuang and other configurations
+$ npm install ionic cordova                     ## Install ionic / cordova for build app
+$ Ionic state reset && ionic build android      ## reset plugins and platforms, and build android app (before that, you need to install and configure android-sdk.) Generated apk stored in platforms / android / build / / table of Contents
 
 
-## Back-end deployment
+### Back-end deployment
 $ cd HeyCommunity/backend
-$ composer install
-$ bower install
-$ cp .env.example .env
-$ php artisan key:generate
-$ vi .env                                       ##  Configure the database connection
-# php artisan migrate:refresh --seed            ##  Build the database and generate fake data
+$ composer install                              ## Install PHP dependencies
+$ bower install                                 ## Install front-end dependencies
+$ cp .env.example .env                          ## Copy the configuration file
+$ php artisan key:generate                      ## Generate AppKey
+$ vi .env                                       ## Modify Database / Qiniu / JiGuang / Wechat and other configurations
+# php artisan migrate:refresh --seed            ## Build the database and generate fake data
+
+
+### Configuration Apache Server
+Define a virtual host, set the domain new.hey-community.local, set DocumentRoot for the HeyCommunity directory
+Enable the Apache Rewrite module and set HeyCommunity AllowOverride All to restart Apache
+
+Your WebApp URL is: http://new.hey-community.local
+Your API_DOMAIN is: http://new.hey-community.local
 ```
+
+Now, the browser opens http: //new.hey-community.local to access HeyCommunity WebApp
+Build iOS / Android app Please refer to the `Front-end deployment and build` part of the relevant network data, the length is too large to add a detailed description later
+
 
 Note:
 
-1. Front-end based on [Ionic Framework](http://ionicframework.com) v2, need to `node`` npm` encounter problems please refer to the relevant documents
-2. Backend Based on [Laravel Framework](http://laravel.com), you need `composer`` bower` encounter problems please consult the relevant documents
-
-
-
-## Run
-
-We recommend using Apache Web Server, assuming that `demo.hey-community.local` has been parsed into the` HeyCommunit` directory   
-Then in the browser to open `demo.hey-community.local` HeyCommunity can see the effect of running in the browser
-
-To run on iOS and Android devices, read the __front-end deployment__ content in the __Advanced Deployment__ and still have questions, please check out [Ionic](http://ionicframework.com) v2 and other related documentation
-
+1. Front-end based on Ionic Framework v2, need to nodenpm encounter problems please refer to the relevant documents
+2. Backend Based on Laravel Framework, you need composerbower encounter problems please consult the relevant documents
+3. Environment dependency can refer to `HeyCommunity/Dockerfile` and `HeyCommunity/docker-entrypoint.sh` of [Official Docs](http://docs.hey-community.com)
 
 
 ## Contact
