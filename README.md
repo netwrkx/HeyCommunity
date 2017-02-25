@@ -34,7 +34,7 @@ At present Timeline / Topic two functional modules, employ to the WeChat LogIn, 
 Official Website: [http://www.hey-community.com](http://www.hey-community.com)   
 Official Docs: [http://docs.hey-community.com](http://docs.hey-community.com)   
 Online DEMO: [http://demo.hey-community.com](http://demo.hey-community.com)   
-Android DEMO: [TheHCase](https://fir.im/hc300)
+Android DEMO: [TheHCase](https://fir.im/hc300)   
 iOS DEMO: [TheHCase](https://fir.im/hc300)
 
 

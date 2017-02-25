@@ -34,7 +34,7 @@ HeyCommunity 是一款开源的社交软件, 适用于 iOS / Android 等一切�
 官方网站: [http://www.hey-community.com](http://www.hey-community.com)   
 官方文档: [http://docs.hey-community.com](http://docs.hey-community.com)   
 在线演示: [http://demo.hey-community.com](http://demo.hey-community.com)   
-Android 演示: [TheHCase](https://fir.im/hc300)
+Android 演示: [TheHCase](https://fir.im/hc300)   
 iOS 演示: [TheHCase](https://fir.im/hc300)
 
 
