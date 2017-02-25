@@ -1,8 +1,8 @@
 app:
-  image: daocloud.io/rodv2/hey-community-cloud:latest
+  image: daocloud.io/rodv2/hey-community:latest
   environment:
     - LOCALE=zh-CN
-    - HC_ENV=product
+    - HC_ENV=test
     - COMMUNITY_NAME=New Community
     - ADMIN_NICKNAME=Admin
     - ADMIN_EMAIL=admin@hey-community.com
@@ -13,7 +13,7 @@ app:
   links:
     - db:MYSQL
   volumes:
-    - /data/HeyCommunityCloudStorage:/app/backend/public/uploads
+    - /data/HeyCommunityStorage:/app/backend/public/uploads
   ports:
     - "80"
   restart: always
@@ -23,7 +23,7 @@ db:
     - MYSQL_DATABASE=prod_heycommunity
     - MYSQL_ROOT_PASSWORD=Root
   volumes:
-    - /data/HeyCommunityCloudDBStorage:/var/lib/mysql
+    - /data/HeyCommunityDBStorage:/var/lib/mysql
   ports:
     - "3306"
   restart: always
